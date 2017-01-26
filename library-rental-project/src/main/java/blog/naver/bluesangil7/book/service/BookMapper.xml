@@ -27,8 +27,8 @@
 	<!-- 도서상태명 가져오기 -->
 	<select id="selectState" resultType="blog.naver.bluesangil7.book.service.State">
 		SELECT
-			state_no as stateNo, 
-			state_name as stateName 
+			state_no, 
+			state_name 
 		FROM state
 		ORDER BY state_no ASC
 	</select>
