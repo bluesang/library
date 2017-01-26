@@ -21,7 +21,7 @@
 		SELECT
 			local_no as localNo, 
 			local_name as localName 
-		FROM LOCAL
+		FROM local
 		ORDER BY local_no ASC
 	</select>
 	
@@ -29,10 +29,11 @@
 	<select id="login" resultType="blog.naver.bluesangil7.library.service.Library">
 		SELECT
 			local_no as localNo,
-			library.library_id as libraryId,
-			local.local_name as localName
+			library_id as libraryId,
 		FROM library
-		INNER JOIN local
-		ON library.local_no = local.local_no	
+		WHERE
+			library_id = #{libraryId}
+		AND
+			library_pw = #{libraryPw}
 	</select>
 </mapper>

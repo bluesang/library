@@ -2,12 +2,41 @@ package blog.naver.bluesangil7.book.service;
 
 public class Book {
 	private String bookCode;
+	private String libraryId;
+	private int stateNo;
+	private int genreNo;
 	private String bookName;
 	private String bookAuthor;
 	private String bookPublisher;
 	private int bookFirstDay;
 	private int bookTotalDay;
 	private int bookTotalCount;
+	
+	
+	public String getLibraryId() {
+		return libraryId;
+	}
+
+	public void setLibraryId(String libraryId) {
+		this.libraryId = libraryId;
+	}
+
+	public int getStateNo() {
+		return stateNo;
+	}
+
+	public void setStateNo(int stateNo) {
+		this.stateNo = stateNo;
+	}
+
+	public int getGenreNo() {
+		return genreNo;
+	}
+
+	public void setGenreNo(int genreNo) {
+		this.genreNo = genreNo;
+	}
+
 	public String getBookCode() {
 		return bookCode;
 	}
@@ -66,9 +95,10 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [bookCode=" + bookCode + ", bookName=" + bookName + ", bookAuthor=" + bookAuthor
-				+ ", bookPublisher=" + bookPublisher + ", bookFirstDay=" + bookFirstDay + ", bookTotalDay="
-				+ bookTotalDay + ", bookTotalCount=" + bookTotalCount + "]";
+		return "Book [bookCode=" + bookCode + ", libraryId=" + libraryId + ", stateNo=" + stateNo + ", genreNo="
+				+ genreNo + ", bookName=" + bookName + ", bookAuthor=" + bookAuthor + ", bookPublisher=" + bookPublisher
+				+ ", bookFirstDay=" + bookFirstDay + ", bookTotalDay=" + bookTotalDay + ", bookTotalCount="
+				+ bookTotalCount + "]";
 	}
 	
 	

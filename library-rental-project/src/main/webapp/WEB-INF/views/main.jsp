@@ -12,8 +12,11 @@
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </style>
-<body class="w3-light-grey">
 
+<body class="w3-light-grey">
+<%
+	String SID = (String)session.getAttribute("SID");
+%>
 <!-- Navigation Bar -->
 <ul class="w3-navbar w3-white w3-large">
   <li><a href="#" class="w3-red"><i class="fa fa-bed w3-margin-right"></i>Team 4</a></li>
@@ -22,6 +25,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
   <li><a href="<c:url value='/rental/bookRental' />">대여관리</a></li>
   
   <li class="w3-right w3-light-grey"><a href="<c:url value='/library/login' />">로그아웃</a></li>
+  <li class="w3-right w3-light-grey">
+	<%=SID %>님 로그인 되었습니다
+  </li>
 </ul>
 
 <!-- Header -->

@@ -26,7 +26,7 @@ public class LibraryDaoImpl implements LibraryDao {
 	}
 
 	@Override
-	public Local login() {
+	public Library login() {
 		
 		return sqlSession.selectOne(LIBRARY_NS+"login");
 	}

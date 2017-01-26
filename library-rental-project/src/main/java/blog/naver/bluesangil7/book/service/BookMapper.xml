@@ -3,5 +3,44 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="blog.naver.bluesangil7.book.service.BookMapper">
+	<!-- 도서등록 -->
+	<insert id="bookAdd" parameterType="blog.naver.bluesangil7.book.service.Book">
+		INSERT INTO book(
+			library_id,
+			state_no,
+			genre_no,
+			book_name,
+			book_author,
+			book_publisher,
+			book_firstday
+		)VALUES(
+			#{libraryId},
+			#{stateNo},
+			#{genreNo},
+			#{bookName},
+			#{bookAuthor},
+			#{bookPublisher},
+			now()
+		)
+	</insert>
+	
+	<!-- 도서상태명 가져오기 -->
+	<select id="selectState" resultType="blog.naver.bluesangil7.book.service.State">
+		SELECT
+			state_no as stateNo, 
+			state_name as stateName 
+		FROM state
+		ORDER BY state_no ASC
+	</select>
+	
+	<!-- 도서장르명 가져오기 -->
+	<select id="selectGenre" resultType="blog.naver.bluesangil7.book.service.Genre">
+		SELECT
+			genre_no as genreNo, 
+			genre_name as genreName 
+		FROM genre
+		ORDER BY genre_no ASC
+	</select>
+	
 	
 </mapper>

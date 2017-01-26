@@ -1,5 +1,8 @@
 package blog.naver.bluesangil7.library.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,9 @@ import blog.naver.bluesangil7.library.service.LibraryService;
 public class LibraryController {
 	@Autowired
 	private LibraryService libraryService;
+	
+	@Autowired
+	HttpServletRequest request;
 	
 	@RequestMapping(value="/library/libraryAdd" , method=RequestMethod.GET)
 	public String addLibrary(Model model){
@@ -36,6 +42,10 @@ public class LibraryController {
 	
 	@RequestMapping(value="/library/login" ,method=RequestMethod.POST)
 	public String login(Library library){
+		HttpSession session = request.getSession(true);
+		System.out.println("세션 잘있냐?"+session);
+		session.setAttribute("library" , library);
+		session.setAttribute("SID", library.getLibraryId());
 		System.out.println("로그인 잘했남~?" +library);
 		return "redirect:/library/main";
 	}
