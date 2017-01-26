@@ -24,4 +24,15 @@
 		FROM LOCAL
 		ORDER BY local_no ASC
 	</select>
+	
+	<!-- 로그인 -->
+	<select id="login" resultType="blog.naver.bluesangil7.library.service.Library">
+		SELECT
+			local_no as localNo,
+			library.library_id as libraryId,
+			local.local_name as localName
+		FROM library
+		INNER JOIN local
+		ON library.local_no = local.local_no	
+	</select>
 </mapper>

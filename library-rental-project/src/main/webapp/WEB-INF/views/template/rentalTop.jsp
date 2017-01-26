@@ -28,10 +28,10 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <li class="w3-opennav w3-right w3-hide-large">
       <a class="w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
     </li>
-    <li><a href="<%=request.getContextPath() %>/main.jsp" class="w3-theme-l1">Team4</a></li>
-    <li class="w3-hide-small"><a href="<%=request.getContextPath() %>/book/bookRegister.jsp" class="w3-hover-white">도서관리</a></li>
-    <li class="w3-hide-small"><a href="<%=request.getContextPath() %>/member/memberRegister.jsp" class="w3-hover-white">회원관리</a></li>
-    <li class="w3-hide-small"><a href="<%=request.getContextPath() %>/rental/bookRental.jsp" class="w3-hover-white">대여관리</a></li>
+    <li><a href="<c:url value='/library/main' />" class="w3-theme-l1">Team4</a></li>
+    <li class="w3-hide-small"><a href="<c:url value='/book/bookAdd' />" class="w3-hover-white">도서관리</a></li>
+    <li class="w3-hide-small"><a href="<c:url value='/member/memberAdd' />" class="w3-hover-white">회원관리</a></li>
+    <li class="w3-hide-small"><a href="<c:url value='/rental/bookRental' />" class="w3-hover-white">대여관리</a></li>
   </ul>
 </div>
 
@@ -41,8 +41,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <i class="fa fa-remove"></i>
   </a>
   <h4><b>Menu</b></h4>
-  <a href="<%=request.getContextPath() %>/rental/bookRental.jsp" class="w3-hover-black">도서대여</a>
-  <a href="<%=request.getContextPath() %>/rental/bookReturn.jsp" class="w3-hover-black">도서반납</a>
+  <a href="<c:url value='/rental/bookRental' />" class="w3-hover-black">도서대여</a>
+  <a href="<c:url value='/rental/bookReturn' />" class="w3-hover-black">도서반납</a>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->

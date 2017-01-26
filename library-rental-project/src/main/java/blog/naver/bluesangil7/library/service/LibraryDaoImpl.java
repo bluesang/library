@@ -25,4 +25,10 @@ public class LibraryDaoImpl implements LibraryDao {
 		return sqlSession.selectList(LIBRARY_NS+"selectLocal");
 	}
 
+	@Override
+	public Local login() {
+		
+		return sqlSession.selectOne(LIBRARY_NS+"login");
+	}
+
 }

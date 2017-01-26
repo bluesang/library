@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -16,15 +17,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <!-- Navigation Bar -->
 <ul class="w3-navbar w3-white w3-large">
   <li><a href="#" class="w3-red"><i class="fa fa-bed w3-margin-right"></i>Team 4</a></li>
-  <li><a href="#rooms">도서관리</a></li>
-  <li><a href="#about">회원관리</a></li>
-  <li><a href="#contact">대여관리</a></li>
-  <li class="w3-right w3-light-grey"><a href="#contact">로그아웃</a></li>
+  <li><a href="<c:url value='/book/bookAdd' />">도서관리</a></li>
+  <li><a href="<c:url value='/member/memberAdd' />">회원관리</a></li>
+  <li><a href="<c:url value='/rental/bookRental' />">대여관리</a></li>
+  
+  <li class="w3-right w3-light-grey"><a href="<c:url value='/library/login' />">로그아웃</a></li>
 </ul>
 
 <!-- Header -->
 <header class="w3-display-container w3-content" style="max-width:1500px;">
-  <img class="w3-image" src="./image/lib.jpg" style="min-width:1000px" width="1500" height="800">
+  <img class="w3-image" src="/resources/image/lib.jpg" style="min-width:1000px" width="1500" height="800">
 </header>
 
 </body>

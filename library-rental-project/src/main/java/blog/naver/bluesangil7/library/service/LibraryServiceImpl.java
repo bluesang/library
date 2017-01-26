@@ -20,4 +20,9 @@ public class LibraryServiceImpl implements LibraryService {
 		return libraryDao.selectLocal();
 	}
 
+	@Override
+	public Local login() {
+		return libraryDao.login();
+	}
+
 }

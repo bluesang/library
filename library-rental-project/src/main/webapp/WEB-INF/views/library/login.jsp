@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -13,31 +14,32 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </style>
 <body class="w3-light-grey">
 
+
 <!-- Navigation Bar -->
 <ul class="w3-navbar w3-white w3-large">
   <li><a href="#" class="w3-red"><i class="fa fa-bed w3-margin-right"></i>Team 4</a></li>
-  <li class="w3-right w3-light-grey"><a href="<%=request.getContextPath() %>/libraryRegister.jsp">관리자 등록</a></li>
+  <li class="w3-right w3-light-grey"><a href="<c:url value='/library/libraryAdd' />">관리자 등록</a></li>
 </ul>
 
 <!-- Header -->
 <header class="w3-display-container w3-content" style="max-width:1500px;">
-  <img class="w3-image" src="./image/lib.jpg" style="min-width:1000px" width="1500" height="800">
+  <img class="w3-image" src="/resources/image/lib.jpg" style="min-width:1000px" width="1500" height="800">
   <div class="w3-display-left w3-padding w3-col l6 m8">
     <div class="w3-container w3-red">
       <h2>Login</h2>
     </div>
     <div class="w3-container w3-white w3-padding-16">
-      <form action="#" target="_blank">
+      <form action="<c:url value='/library/login' />" method="post">
         <div class="w3-row-padding" style="margin:0 -16px;">
           <div class="w3-half w3-margin-bottom">
             <label>ID</label>
-            <input class="w3-input w3-border" type="text" name="memberId" >
+            <input class="w3-input w3-border" type="text" name="libraryId" >
           </div>
         </div>
         <div class="w3-row-padding" style="margin:8px -16px;">
           <div class="w3-half w3-margin-bottom">
             <label>PW</label>
-            <input class="w3-input w3-border" type="password" name="memberPw">
+            <input class="w3-input w3-border" type="password" name="libraryPw">
           </div>
         </div>
         <button class="w3-btn w3-dark-grey" type="submit">로그인</button>

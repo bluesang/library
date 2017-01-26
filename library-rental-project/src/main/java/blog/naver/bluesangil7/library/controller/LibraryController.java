@@ -26,6 +26,23 @@ public class LibraryController {
 	public String addLibrary(Library library){
 		System.out.println("library에 뭐가 들어있나~? "+library);
 		libraryService.addLibrary(library);
-		return "/library/libraryAdd";
+		return "redirect:/library/login";
+	}
+	
+	@RequestMapping(value="/library/login" ,method=RequestMethod.GET)
+	public String login(){
+		return "/library/login";
+	}
+	
+	@RequestMapping(value="/library/login" ,method=RequestMethod.POST)
+	public String login(Library library){
+		System.out.println("로그인 잘했남~?" +library);
+		return "redirect:/library/main";
+	}
+	
+	@RequestMapping(value="/library/main")
+	public String main(Library library){
+		
+		return "/main";
 	}
 }

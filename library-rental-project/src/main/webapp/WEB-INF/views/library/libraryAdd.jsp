@@ -69,5 +69,4 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 		</form>
 	</div>
 </div>
-<c:url value=""></c:url>
-<%-- <jsp:include page="<%=request.getContextPath()%>/main/webapp/WEB_INF/views/template/bookBottom.jsp"/> --%>
+
