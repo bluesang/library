@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="blog.naver.bluesangil7.member.service.MemberMapper">
+	<!-- 회원등록 -->
+	<insert id="memberAdd" parameterType="blog.naver.bluesangil7.member.service.Member">
+		INSERT INTO member (
+			member_id,
+			member_name,
+			member_phone,
+			memberlevel_no
+		) VALUES(
+			#{memberId},
+			#{memberName},
+			#{memberPhone},
+			#{memberlevelNo}
+		)
+	</insert>
+	
+	<!-- 회원등급 가져오기 -->
+	<select id="selectMemberlevel" resultType="blog.naver.bluesangil7.member.service.Memberlevel">
+		SELECT 
+			memberlevel_no as memberlevelNo,
+			memberlevel_name as memberlevelName
+		FROM memberlevel
+		ORDER BY memberlevel_no ASC
+	</select>
+</mapper>
