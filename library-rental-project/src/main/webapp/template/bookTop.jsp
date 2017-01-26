@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -41,8 +42,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <i class="fa fa-remove"></i>
   </a>
   <h4><b>Menu</b></h4>
-  <a href="<c:url value='/book/bookAdd' />" class="w3-hover-black">도서등록</a>
-  <a href="<c:url value='/book/bookDisposal' />" class="w3-hover-black">도서폐기등록</a>
+  <a href="<c:url value="/book/bookAdd" />" class="w3-hover-black">도서등록</a>
+  <a href="<c:url value="/book/bookDisposal" />" class="w3-hover-black">도서폐기등록</a>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->

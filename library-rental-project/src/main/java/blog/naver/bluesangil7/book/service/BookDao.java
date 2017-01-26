@@ -6,4 +6,5 @@ public interface BookDao {
 	int bookInsert(Book book);
 	List<State> selectState();
 	List<Genre> selectGenre();
+	int bookDisposal(int bookCode);
 }

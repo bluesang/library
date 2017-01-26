@@ -35,4 +35,9 @@ public class BookServiceImpl implements BookService {
 		return bookDao.selectGenre();
 	}
 
+	@Override
+	public int bookDisposal(int bookCode) {
+		return bookDao.bookDisposal(bookCode);
+	}
+
 }

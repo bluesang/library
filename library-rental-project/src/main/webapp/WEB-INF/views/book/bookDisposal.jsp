@@ -1,20 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="<%=request.getContextPath()%>/main/webapp/WEB_INF/views/template/bookTop.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="/template/bookTop.jsp" flush="true"/>
+
 
 <div class="w3-main" style="margin-left:250px">
 	<div class="w3-row w3-padding-64">
 		<h1>도서폐기등록</h1>
-		<table class="table table-bordered">				
-			<tr>
-				<th>도서코드</th>
-				<td><input type="text" name="id"></td>								
-			</tr>
-			
-		</table>
-		
-		<input type="submit" value="도서폐기">
+		<form action ="<c:url value='/book/bookDisposal'/>" method="post">
+			<table class="table table-bordered">				
+				<tr>
+					<th>도서코드</th>
+					<td><input type="text" name="bookCode"></td>								
+				</tr>
+			</table>
+			<input type="submit" value="도서폐기">
+		</form>
 	</div>
 </div>
 
-<jsp:include page="<%=request.getContextPath()%>/main/webapp/WEB_INF/views/template/bookBottom.jsp" />
+<jsp:include page="/template/bookBottom.jsp" flush="true"/>

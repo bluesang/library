@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import blog.naver.bluesangil7.book.service.Book;
 import blog.naver.bluesangil7.book.service.BookService;
@@ -28,4 +29,16 @@ public class BookController {
 		return "redirect:/library/main";
 	}
 	
+	@RequestMapping(value="/book/bookDisposal", method=RequestMethod.GET)
+	public String bookDisposal(){
+		return "/book/bookDisposal";
+	}
+	
+	@RequestMapping(value="/book/bookDisposal", method=RequestMethod.POST)
+	public String bookDisposal(@RequestParam(value="bookCode")int bookCode){
+		bookService.bookDisposal(bookCode);
+		System.out.println("폐기등록 잘됐냐~?" + bookCode);
+		
+		return "redirect:/library/main";
+	}
 }

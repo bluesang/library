@@ -42,5 +42,25 @@
 		ORDER BY genre_no ASC
 	</select>
 	
+	<!-- 폐기도서 등록 -->
+	<insert id="bookDisposal" parameterType="int">
+		INSERT INTO disposal(
+			 disposal_bookname,
+			 disposal_author,
+			 book_code, 
+			 genre_no, 
+			 disposal_publisher,
+			 disposal_registerday
+		)SELECT 
+			book_name as bookName,
+			book_author as bookAuthor, 
+			book_code as bookCode, 
+			genre_no as genreNo, 
+			book_publisher as bookPublisher,
+			now() 
+		FROM book 
+		WHERE 
+			book_code = #{bookCode} 
+	</insert>
 	
 </mapper>

@@ -28,4 +28,9 @@ public class BookDaoImpl implements BookDao {
 		return sqlSession.selectList(BOOK_NS+"selectGenre");
 	}
 
+	@Override
+	public int bookDisposal(int bookCode) {
+		return sqlSession.insert(BOOK_NS+"bookDisposal",bookCode);
+	}
+
 }

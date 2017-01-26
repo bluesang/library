@@ -6,5 +6,5 @@ public interface BookService {
 	int bookAdd(Book book);
 	List<State> selectState();
 	List<Genre> selectGenre();
-	
+	int bookDisposal(int bookCode);
 }
