@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="blog.naver.bluesangil7.rental.service.RentalMapper">
+	<!-- 대여상태 가져오기 -->
+	<select id="selectRentalstate" resultType="blog.naver.bluesangil7.rental.service.Rentalstate">
+		SELECT 
+			rentalstate_no,
+			rentalstate_name
+		FROM rentalstate
+		ORDER BY rentalstate_no ASC
+	</select>
+	
+	<!-- 대여등록하기 -->
+	<insert id="bookRental" parameterType="blog.naver.bluesangil7.rental.service.Rental">
+		INSERT INTO rental(
+			book_code,
+			rentalstate_no,
+			member_id,
+			rental_start,
+			rental_end,
+			rental_payment
+		) VALUES(
+			#{bookCode},
+			#{rentalstateNo},
+			#{memberId},
+			#{rentalStart},
+			#{rentalEnd},
+			#{rentalPayment}
+		)
+	</insert>
+	
+	<!-- 도서 코드로 조회해서 도서정보 가져오기 -->
+	<select id="bookSearch" parameterType="int" resultType="blog.naver.bluesangil7.rental.service.Rental">
+		SELECT 
+			 rental.book_code,
+			 rental.rental_payment,
+			 book.book_name,
+			 member.member_name	 
+		FROM rental
+		INNER JOIN book 
+		ON 
+			rental.book_code = book.book_code
+		INNER JOIN member 
+		ON 
+			rental.member_id = member.member_id
+		WHERE 
+			rental.book_code = #{bookCode}		
+	</select>
+</mapper>

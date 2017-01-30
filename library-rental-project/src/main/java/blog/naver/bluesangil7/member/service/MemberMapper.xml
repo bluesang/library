@@ -21,8 +21,8 @@
 	<!-- 회원등급 가져오기 -->
 	<select id="selectMemberlevel" resultType="blog.naver.bluesangil7.member.service.Memberlevel">
 		SELECT 
-			memberlevel_no as memberlevelNo,
-			memberlevel_name as memberlevelName
+			memberlevel_no,
+			memberlevel_name
 		FROM memberlevel
 		ORDER BY memberlevel_no ASC
 	</select>

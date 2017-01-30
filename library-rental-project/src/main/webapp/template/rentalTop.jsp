@@ -43,7 +43,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   </a>
   <h4><b>Menu</b></h4>
   <a href="<c:url value='/rental/bookRental' />" class="w3-hover-black">도서대여</a>
-  <a href="<c:url value='/rental/bookReturn' />" class="w3-hover-black">도서반납</a>
+  <a href="<c:url value='/rental/bookSearch' />" class="w3-hover-black">도서반납</a>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->

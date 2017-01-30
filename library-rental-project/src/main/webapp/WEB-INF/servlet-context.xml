@@ -48,6 +48,7 @@
                 <value>classpath:blog/naver/bluesangil7/book/service/BookMapper.xml</value>
                 <value>classpath:blog/naver/bluesangil7/library/service/LibraryMapper.xml</value>
                 <value>classpath:blog/naver/bluesangil7/member/service/MemberMapper.xml</value>
+                <value>classpath:blog/naver/bluesangil7/rental/service/RentalMapper.xml</value>
             </list>
         </property>
     </bean>
