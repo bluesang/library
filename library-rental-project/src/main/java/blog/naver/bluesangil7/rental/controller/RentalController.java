@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import blog.naver.bluesangil7.rental.service.Rental;
 import blog.naver.bluesangil7.rental.service.RentalService;
@@ -37,14 +38,15 @@ public class RentalController {
 	}
 	
 	@RequestMapping(value="/rental/bookSearch", method=RequestMethod.POST)
-	public String bookSearch(int bookCode){
-		return "redirect:/rental/bookReturn?bookCode=bookCode";
+	public String bookSearch(RedirectAttributes redirectAttributes, int bookCode){
+		redirectAttributes.addAttribute("bookCode", bookCode);
+		return "redirect:/rental/bookReturn";
 	}
 	
 	//도서반납
 	@RequestMapping(value="/rental/bookReturn", method=RequestMethod.GET)
 	public String bookReturn(@RequestParam(
-			value="bookCode") int bookCode,
+			"bookCode") int bookCode,
 			Model model){
 		model.addAttribute("bookReturn",rentalService.bookSearch(bookCode));
 		return "/rental/bookReturn";

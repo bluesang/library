@@ -14,7 +14,25 @@ public class Rental {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date rentalEnd;
 	private int rentalPayment;
+	private String bookName;
+	private String memberName;
 	
+	public String getBookName() {
+		return bookName;
+	}
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+
+	public String getMemberName() {
+		return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
+	}
+
 	public int getRentalNo() {
 		return rentalNo;
 	}
@@ -75,7 +93,7 @@ public class Rental {
 	public String toString() {
 		return "Rental [rentalNo=" + rentalNo + ", bookCode=" + bookCode + ", memberId=" + memberId + ", rentalstateNo="
 				+ rentalstateNo + ", rentalStart=" + rentalStart + ", rentalEnd=" + rentalEnd + ", rentalPayment="
-				+ rentalPayment + "]";
+				+ rentalPayment + ", bookName=" + bookName + ", memberName=" + memberName + "]";
 	}
 	
 	
