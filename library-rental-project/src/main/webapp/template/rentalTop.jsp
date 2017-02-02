@@ -33,6 +33,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <li class="w3-hide-small"><a href="<c:url value='/book/bookAdd' />" class="w3-hover-white">도서관리</a></li>
     <li class="w3-hide-small"><a href="<c:url value='/member/memberAdd' />" class="w3-hover-white">회원관리</a></li>
     <li class="w3-hide-small"><a href="<c:url value='/rental/bookRental' />" class="w3-hover-white">대여관리</a></li>
+    <li class="w3-right w3-light-grey"><a href="<c:url value='/library/logout' />">로그아웃</a></li>
   </ul>
 </div>
 
@@ -43,6 +44,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   </a>
   <h4><b>Menu</b></h4>
   <a href="<c:url value='/rental/bookRental' />" class="w3-hover-black">도서대여</a>
+  <a href="<c:url value='/rental/bookRentalList' />" class="w3-hover-black">도서대여목록</a>
   <a href="<c:url value='/rental/bookSearch' />" class="w3-hover-black">도서반납</a>
 </nav>
 

@@ -1,5 +1,6 @@
 package blog.naver.bluesangil7.rental.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,10 @@ public class RentalController {
 	
 	@RequestMapping(value="/rental/bookRental", method=RequestMethod.POST)
 	public String bookRental(Rental rental){
-		System.out.println("대여잘했남~?"+rental);
+		Map<String, Object> returnMap = rentalService.selectRentalInfo();
+		rental = (Rental) returnMap.get("rental");
 		rentalService.bookRental(rental);
-		return "redirect:/library/main";
+		return "redirect:/rental/bookRentalList";
 	}
 	
 	//도서조회
@@ -62,5 +64,12 @@ public class RentalController {
 		System.out.println("rental엔 뭐가들었남~? "+rental);
 		rentalService.bookReturn(rental);
 		return "redirect:/library/main";
+	}
+	
+	//도서대여 목록조회
+	@RequestMapping(value="/rental/bookRentalList")
+	public String bookRentalList(Model model){
+		model.addAttribute("rentalList", rentalService.bookRentalList());
+		return "/rental/bookRentalList";
 	}
 }

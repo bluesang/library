@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Rental {
-	private int rentalNo;
+	private int rentalCode;
 	private int bookCode;
 	private String memberId;
 	private int rentalstateNo;
@@ -18,8 +18,26 @@ public class Rental {
 	private String memberName;
 	private String memberlevelName;
 	private int paying;
+	private int paymentNo;
+	private int paymentPrice;
 	
 	
+	public int getPaymentNo() {
+		return paymentNo;
+	}
+
+	public void setPaymentNo(int paymentNo) {
+		this.paymentNo = paymentNo;
+	}
+
+	public int getPaymentPrice() {
+		return paymentPrice;
+	}
+
+	public void setPaymentPrice(int paymentPrice) {
+		this.paymentPrice = paymentPrice;
+	}
+
 	public int getPaying() {
 		return paying;
 	}
@@ -51,15 +69,15 @@ public class Rental {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
+	
+	public int getRentalCode() {
+		return rentalCode;
+	}
 
-	public int getRentalNo() {
-		return rentalNo;
+	public void setRentalCode(int rentalCode) {
+		this.rentalCode = rentalCode;
 	}
-	
-	public void setRentalNo(int rentalNo) {
-		this.rentalNo = rentalNo;
-	}
-	
+
 	public int getBookCode() {
 		return bookCode;
 	}
@@ -108,13 +126,7 @@ public class Rental {
 		this.rentalPayment = rentalPayment;
 	}
 	
-	@Override
-	public String toString() {
-		return "Rental [rentalNo=" + rentalNo + ", bookCode=" + bookCode + ", memberId=" + memberId + ", rentalstateNo="
-				+ rentalstateNo + ", rentalStart=" + rentalStart + ", rentalEnd=" + rentalEnd + ", rentalPayment="
-				+ rentalPayment + ", bookName=" + bookName + ", memberName=" + memberName + ", memberlevelName="
-				+ memberlevelName + ", paying=" + paying + "]";
-	}
+	
 	
 	
 }

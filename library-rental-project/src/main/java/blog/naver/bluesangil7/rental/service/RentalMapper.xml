@@ -3,7 +3,8 @@
    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="blog.naver.bluesangil7.rental.service.RentalMapper">
-	<!-- 대여상태 가져오기 -->
+	
+	<!-- 대여상태 데이터 가져오기 -->
 	<select id="selectRentalstate" resultType="blog.naver.bluesangil7.rental.service.Rentalstate">
 		SELECT 
 			rentalstate_no,
@@ -12,7 +13,24 @@
 		ORDER BY rentalstate_no ASC
 	</select>
 	
-	<!-- 대여등록하기 -->
+	<!-- 대여 처리를 위한 정보 가져오기 -->
+	<select id="selectRentalInfo" resultType="blog.naver.bluesangil7.rental.service.Rental">
+		SELECT
+			 rental.book_code,
+			 memberlevel.memberlevel_name,
+			 payment.payment_price	 
+		FROM rental		
+		INNER JOIN member 
+			ON rental.member_id = member.member_id
+		INNER JOIN memberlevel
+			ON 	member.memberlevel_no = memberlevel.memberlevel_no
+		INNER JOIN payment 
+			ON rental.payment_no = payment.payment_no
+		WHERE 
+			rental.book_code = #{bookCode}
+	</select>
+	
+	<!-- 대여 처리하기 -->
 	<insert id="bookRental" parameterType="blog.naver.bluesangil7.rental.service.Rental">
 		INSERT INTO rental(
 			book_code,
@@ -23,10 +41,10 @@
 			rental_payment
 		) VALUES(
 			#{bookCode},
-			#{rentalstateNo},
+			1,
 			#{memberId},
-			#{rentalStart},
-			#{rentalEnd},
+			now(),
+			(select adddate(now(), INTERVAL 7 day)),
 			#{rentalPayment}
 		)
 	</insert>
@@ -50,11 +68,32 @@
 			rental.book_code = #{bookCode}		
 	</select>
 	
+	<!-- 도서반납 처리하기 -->
 	<update id="bookReturn" parameterType="blog.naver.bluesangil7.rental.service.Rental">
 		UPDATE rental SET 
-			rental_rentalpay = #{paying},
+			rental_payment = 0,
 			rentalstate_no = 2
 		WHERE 
 			book_code = #{bookCode}
 	</update>
+	
+	<!-- 도서 대여목록 조회하기 -->
+	<select id="bookRentalList" resultType="blog.naver.bluesangil7.rental.service.Rental">
+		SELECT 
+			rental.rental_code,
+			book.book_name,
+			rental.book_code,
+			rental.rental_start,
+			member.member_name,
+			rental.rental_end,
+			rental.rental_payment
+		FROM rental
+		JOIN book 
+			ON rental.book_code = book.book_code
+		JOIN member
+			ON rental.member_id = member.member_id
+		WHERE
+			rentalstate_no = 1 	
+	</select>
+	
 </mapper>

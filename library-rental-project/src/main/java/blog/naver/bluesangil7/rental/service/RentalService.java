@@ -5,7 +5,9 @@ import java.util.Map;
 
 public interface RentalService {
 	List<Rentalstate> selectRentalState();
+	Map<String, Object> selectRentalInfo();
 	int bookRental(Rental rental);
 	Map<String, Object> bookSearch(int bookCode);
 	int bookReturn(Rental rental);
+	List<Rental> bookRentalList();
 }

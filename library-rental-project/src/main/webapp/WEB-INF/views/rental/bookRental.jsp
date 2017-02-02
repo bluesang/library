@@ -8,41 +8,17 @@
 		<form action="<c:url value="/rental/bookRental"/>" method="post">
 			<table class="table table-bordered">				
 				<tr>
-					<th>도서코드</th>
+					<th>도서코드 </th>
 					<td><input type="text" name="bookCode"></td>								
 				</tr>
 				<tr>
-					<th>대여상태변경</th>
-					<td>								
-						<select name="rentalstateNo">
-							<option value="0">::::상태::::</option>
-							<c:forEach var="rentalstate" items="${rentalstateList}">
-								<option value="${rentalstate.rentalstateNo }">${rentalstate.rentalstateName}</option>
-							</c:forEach>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th>회원코드</th>
+					<th>회원ID </th>
 					<td><input type="text" name="memberId"></td>
-				</tr>
+				</tr>							
 				<tr>
-					<th>대여일</th>
+					<th>받은금액 </th>
 					<td>								
-						<input type="date" name="rentalStart" />
-					</td>
-				</tr>
-				<tr>
-					<th>종료일</th>
-					<td>								
-						<input type="date" name="rentalEnd" />
-					</td>
-				</tr>
-				
-				<tr>
-					<th>결제금액</th>
-					<td>								
-						<input type="text" name="rentalPayment" />
+						<input type="text" name="rentalPayment" placeholder="선불결제 금액"/>
 					</td>
 				</tr>
 			</table>
