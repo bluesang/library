@@ -16,7 +16,26 @@ public class Rental {
 	private int rentalPayment;
 	private String bookName;
 	private String memberName;
+	private String memberlevelName;
+	private int paying;
 	
+	
+	public int getPaying() {
+		return paying;
+	}
+
+	public void setPaying(int paying) {
+		this.paying = paying;
+	}
+
+	public String getMemberlevelName() {
+		return memberlevelName;
+	}
+
+	public void setMemberlevelName(String memberlevelName) {
+		this.memberlevelName = memberlevelName;
+	}
+
 	public String getBookName() {
 		return bookName;
 	}
@@ -93,7 +112,8 @@ public class Rental {
 	public String toString() {
 		return "Rental [rentalNo=" + rentalNo + ", bookCode=" + bookCode + ", memberId=" + memberId + ", rentalstateNo="
 				+ rentalstateNo + ", rentalStart=" + rentalStart + ", rentalEnd=" + rentalEnd + ", rentalPayment="
-				+ rentalPayment + ", bookName=" + bookName + ", memberName=" + memberName + "]";
+				+ rentalPayment + ", bookName=" + bookName + ", memberName=" + memberName + ", memberlevelName="
+				+ memberlevelName + ", paying=" + paying + "]";
 	}
 	
 	

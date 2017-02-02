@@ -6,4 +6,5 @@ public interface RentalDao {
 	List<Rentalstate> selectRentalstate();
 	int bookRental(Rental rental);
 	Rental bookSearch(int bookCode);
+	int bookReturn(Rental rental);
 }

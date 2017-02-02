@@ -1,5 +1,7 @@
 package blog.naver.bluesangil7.rental.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,7 +50,17 @@ public class RentalController {
 	public String bookReturn(@RequestParam(
 			"bookCode") int bookCode,
 			Model model){
-		model.addAttribute("bookReturn",rentalService.bookSearch(bookCode));
+		Map<String, Object> returnMap = rentalService.bookSearch(bookCode);
+		model.addAttribute("rental", returnMap.get("rental"));
+		model.addAttribute("totalPrice",returnMap.get("totalPrice"));
+		model.addAttribute("paying",returnMap.get("paying"));
 		return "/rental/bookReturn";
+	}
+	
+	@RequestMapping(value="/rental/bookReturn", method=RequestMethod.POST)
+	public String bookReturn(Rental rental){
+		System.out.println("rental엔 뭐가들었남~? "+rental);
+		rentalService.bookReturn(rental);
+		return "redirect:/library/main";
 	}
 }

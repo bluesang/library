@@ -30,4 +30,10 @@ public class RentalDaoImpl implements RentalDao {
 		return sqlSession.selectOne(RENTALSTATE_NS+"bookSearch", bookCode);
 	}
 
+	@Override
+	public int bookReturn(Rental rental) {
+		
+		return sqlSession.update(RENTALSTATE_NS+"bookReturn", rental);
+	}
+
 }

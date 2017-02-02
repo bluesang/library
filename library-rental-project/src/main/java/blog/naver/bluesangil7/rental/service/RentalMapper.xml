@@ -37,15 +37,24 @@
 			 rental.book_code,
 			 rental.rental_payment,
 			 book.book_name,
-			 member.member_name	 
+			 member.member_name,
+			 memberlevel.memberlevel_name	 
 		FROM rental
 		INNER JOIN book 
-		ON 
-			rental.book_code = book.book_code
+			ON rental.book_code = book.book_code
 		INNER JOIN member 
-		ON 
-			rental.member_id = member.member_id
+			ON rental.member_id = member.member_id
+		INNER JOIN memberlevel
+			ON 	member.memberlevel_no = memberlevel.memberlevel_no
 		WHERE 
 			rental.book_code = #{bookCode}		
 	</select>
+	
+	<update id="bookReturn" parameterType="blog.naver.bluesangil7.rental.service.Rental">
+		UPDATE rental SET 
+			rental_rentalpay = #{paying},
+			rentalstate_no = 2
+		WHERE 
+			book_code = #{bookCode}
+	</update>
 </mapper>
