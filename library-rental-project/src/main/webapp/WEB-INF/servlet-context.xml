@@ -18,7 +18,8 @@
 	<!-- 로그인 처리 인터셉터 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/library/main"/>
+			<mvc:mapping path="/*/*"/>
+			<mvc:exclude-mapping path="/library/login"/>			
 			<bean class="blog.naver.blusangil7.util.LoginCheckInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

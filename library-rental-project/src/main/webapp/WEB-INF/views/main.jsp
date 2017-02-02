@@ -24,7 +24,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
   <li><a href="<c:url value='/member/memberAdd' />">회원관리</a></li>
   <li><a href="<c:url value='/rental/bookRental' />">대여관리</a></li>
   
-  <li class="w3-right w3-light-grey"><a href="<c:url value='/library/login' />">로그아웃</a></li>
+  <li class="w3-right w3-light-grey"><a href="<c:url value='/library/logout' />">로그아웃</a></li>
   <li class="w3-right w3-light-grey">
 	<%=SID %>님 로그인 되었습니다
   </li>

@@ -21,6 +21,7 @@ public class LibraryController {
 	@Autowired
 	HttpServletRequest request;
 	
+	//도서관 관리자 등록
 	@RequestMapping(value="/library/libraryAdd" , method=RequestMethod.GET)
 	public String addLibrary(Model model){
 		System.out.println("localList"+libraryService.selectLocal());
@@ -35,6 +36,7 @@ public class LibraryController {
 		return "redirect:/library/login";
 	}
 	
+	//관리자 로그인
 	@RequestMapping(value="/library/login" ,method=RequestMethod.GET)
 	public String login(){
 		return "/library/login";
@@ -50,6 +52,12 @@ public class LibraryController {
 		return "redirect:/library/main";
 	}
 	
+	@RequestMapping(value="/library/logout")
+	public String logout(HttpSession session){
+		session.invalidate();
+		System.out.println("로그아웃 잘됏남?" + session);
+		return "redirect:/library/login";
+	}
 	@RequestMapping(value="/library/main")
 	public String main(Library library){
 		
