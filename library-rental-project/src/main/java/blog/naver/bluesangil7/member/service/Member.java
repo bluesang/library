@@ -5,7 +5,16 @@ public class Member {
 	private String memberName;
 	private String memberPhone;
 	private String memberlevelNo;
+	private int memberlevelPayment;
 	
+	public int getMemberlevelPayment() {
+		return memberlevelPayment;
+	}
+
+	public void setMemberlevelPayment(int memberlevelPayment) {
+		this.memberlevelPayment = memberlevelPayment;
+	}
+
 	public String getMemberId() {
 		return memberId;
 	}

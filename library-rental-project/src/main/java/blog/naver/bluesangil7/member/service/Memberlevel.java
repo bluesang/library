@@ -3,6 +3,7 @@ package blog.naver.bluesangil7.member.service;
 public class Memberlevel {
 	private int memberlevelNo;
 	private String memberlevelName;
+	private int memberlevelPayment;
 	
 	public int getMemberlevelNo() {
 		return memberlevelNo;
@@ -20,12 +21,12 @@ public class Memberlevel {
 		this.memberlevelName = memberlevelName;
 	}
 
-	@Override
-	public String toString() {
-		return "Memberlevel [memberlevelNo=" + memberlevelNo + ", memberlevelName=" + memberlevelName + "]";
+	public int getMemberlevelPayment() {
+		return memberlevelPayment;
 	}
-	
-	
-	
+
+	public void setMemberlevelPayment(int memberlevelPayment) {
+		this.memberlevelPayment = memberlevelPayment;
+	}
 
 }

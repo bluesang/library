@@ -32,13 +32,13 @@
 				<tr>
 					<th>받은금액</th>
 					<td>								
-						<input type="text" name="paid" readonly="readonly" value="${rental.rentalPayment}" >
+						<input type="text" name="paid" readonly="readonly" value="${paying}" >
 					</td>				
 				</tr>
 				<tr>
 					<th>받을금액</th>
 					<td>								
-						<input type="text" name="paying" value="${paying}">
+						<input type="text" name="paying" value="${rental.rentalPayment}">
 					</td>			
 				</tr>
 			</table>		

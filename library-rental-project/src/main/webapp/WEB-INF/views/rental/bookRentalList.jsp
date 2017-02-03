@@ -13,7 +13,7 @@
 				<th>대여일</th>
 				<th>회원이름</th>
 				<th>반납예정일</th>
-				<th>선불금액</th>
+				<th>잔여액</th>
 				
 			</tr>
 			<c:forEach var="rentalList" items="${rentalList}">

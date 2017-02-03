@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import blog.naver.bluesangil7.member.service.Member;
+
 @Repository
 public class RentalDaoImpl implements RentalDao {
 	@Autowired
@@ -20,8 +22,8 @@ public class RentalDaoImpl implements RentalDao {
 	
 	//대여 처리를 위해 데이터 가져오기
 	@Override
-	public Rental selectRentalInfo() {
-		return sqlSession.selectOne(RENTALSTATE_NS+"selectRentalInfo");
+	public Member selectRentalInfo(String memberId) {
+		return sqlSession.selectOne(RENTALSTATE_NS+"selectRentalInfo", memberId);
 	}
 	
 	//도서 대여
@@ -32,8 +34,8 @@ public class RentalDaoImpl implements RentalDao {
 	
 	//도서반납 정보조회
 	@Override
-	public Rental bookSearch(int bookCode) {		
-		return sqlSession.selectOne(RENTALSTATE_NS+"bookSearch", bookCode);
+	public Rental bookReturnSearch(int bookCode) {		
+		return sqlSession.selectOne(RENTALSTATE_NS+"bookReturnSearch", bookCode);
 	}
 	
 	//도서반납 처리

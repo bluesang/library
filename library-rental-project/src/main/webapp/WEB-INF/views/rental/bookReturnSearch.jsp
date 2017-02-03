@@ -4,7 +4,7 @@
 <jsp:include page="/template/rentalTop.jsp"/>
 <div class="w3-main" style="margin-left:250px">
 	<div class="w3-row w3-padding-64">
-		<form action="<c:url value="/rental/bookSearch"/>" method="post">
+		<form action="<c:url value="/rental/bookReturnSearch"/>" method="post">
 			<table class="table table-bordered">
 				<tr>
 					<th>도서코드 </th>

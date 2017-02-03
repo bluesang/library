@@ -7,6 +7,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import blog.naver.bluesangil7.member.service.Member;
+
 @Service
 public class RentalServiceImpl implements RentalService {
 	@Autowired
@@ -20,53 +22,27 @@ public class RentalServiceImpl implements RentalService {
 	
 	//대여 처리를 위해 데이터 가져오기
 	@Override
-	public Map<String, Object> selectRentalInfo() {
+	public Map<String, Object> selectRentalInfo(String memberId) {
+		Member member = rentalDao.selectRentalInfo(memberId);
+		System.out.println("member에 뭐가들었니?" + member);
+		int rentalPayment = member.getMemberlevelPayment(); //member에서 가져온 등급에 따른 대여료
 		Map<String, Object> returnMap = new HashMap();
-		Rental rental = rentalDao.selectRentalInfo();
+		returnMap.put("rentalPayment", rentalPayment);
 		
-		//대여료 가져오기
-		int totalPrice = 0;
-		if(rental.getMemberlevelName().equals("일반회원")){ //일반회원 대여료
-			totalPrice = rental.getPaymentPrice();
-		} else if(rental.getMemberlevelName().equals("유료회원")){ //유료회원 대여료
-			totalPrice = rental.getPaymentPrice();;
-		}
-		System.out.println("대여료 : "+ totalPrice);
-		
-		//잔여액 구하기(대여료 - 선불액)
-		int rentalPayment = totalPrice - rental.getRentalPayment();
-		System.out.println("잔여액 : "+ rentalPayment);
-		rental.setRentalPayment(rentalPayment);
-		returnMap.put("rental", rental);
 		return returnMap;
 	}
 	
 	//도서대여 처리
 	@Override
 	public int bookRental(Rental rental) {		
-		int bookCode = rental.getBookCode();
-		System.out.println("bookCode : "+bookCode);
-		rental = rentalDao.bookSearch(bookCode);
-		System.out.println("Service에서 rental : "+rental);
-		//대여료 가져오기
-		int totalPrice = 0;
-		if(rental.getMemberlevelName().equals("일반회원")){ //일반회원 대여료
-			totalPrice = 1000;
-		} else if(rental.getMemberlevelName().equals("유료회원")){ //유료회원 대여료
-			totalPrice = 500;
-		}
-		
-		//대여료 - 선불금액 = 받을 금액
-		int rentalPayment = totalPrice - rental.getRentalPayment();
-		rental.setRentalPayment(rentalPayment);
 		return rentalDao.bookRental(rental);
 	}
 
 	//도서반납 정보조회
 	@Override
-	public Map<String, Object> bookSearch(int bookCode) {
+	public Map<String, Object> bookReturnSearch(int bookCode) {
 		Map<String, Object> returnMap = new HashMap();
-		Rental rental = rentalDao.bookSearch(bookCode);
+		Rental rental = rentalDao.bookReturnSearch(bookCode);
 		
 		//총요금
 		int totalPrice = 0;

@@ -18,25 +18,7 @@ public class Rental {
 	private String memberName;
 	private String memberlevelName;
 	private int paying;
-	private int paymentNo;
-	private int paymentPrice;
 	
-	
-	public int getPaymentNo() {
-		return paymentNo;
-	}
-
-	public void setPaymentNo(int paymentNo) {
-		this.paymentNo = paymentNo;
-	}
-
-	public int getPaymentPrice() {
-		return paymentPrice;
-	}
-
-	public void setPaymentPrice(int paymentPrice) {
-		this.paymentPrice = paymentPrice;
-	}
 
 	public int getPaying() {
 		return paying;

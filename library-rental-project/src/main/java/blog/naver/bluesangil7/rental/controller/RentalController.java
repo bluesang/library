@@ -1,6 +1,5 @@
 package blog.naver.bluesangil7.rental.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import blog.naver.bluesangil7.member.service.Member;
 import blog.naver.bluesangil7.rental.service.Rental;
 import blog.naver.bluesangil7.rental.service.RentalService;
 
@@ -28,21 +28,25 @@ public class RentalController {
 	}
 	
 	@RequestMapping(value="/rental/bookRental", method=RequestMethod.POST)
-	public String bookRental(Rental rental){
-		Map<String, Object> returnMap = rentalService.selectRentalInfo();
-		rental = (Rental) returnMap.get("rental");
+	public String bookRental(Rental rental,
+			@RequestParam(value="memberId") String memberId,
+			@RequestParam(value="rentalPrepayment") int rentalPrepayment){
+		Map<String, Object> returnMap = rentalService.selectRentalInfo(memberId); //대여 처리를 위한 데이터를 가져옴
+		int rentalPayment = (Integer) returnMap.get("rentalPayment"); //Member에서 가져온 등급에 따른 대여료
+		rental.setRentalPayment(rentalPayment-rentalPrepayment); //대여료-선불금 = 잔여액
 		rentalService.bookRental(rental);
+		
 		return "redirect:/rental/bookRentalList";
 	}
 	
 	//도서조회
-	@RequestMapping(value="/rental/bookSearch", method=RequestMethod.GET)
-	public String bookSearch(){
-		return "/rental/bookSearch";
+	@RequestMapping(value="/rental/bookReturnSearch", method=RequestMethod.GET)
+	public String bookReturnSearch(){
+		return "/rental/bookReturnSearch";
 	}
 	
-	@RequestMapping(value="/rental/bookSearch", method=RequestMethod.POST)
-	public String bookSearch(RedirectAttributes redirectAttributes, int bookCode){
+	@RequestMapping(value="/rental/bookReturnSearch", method=RequestMethod.POST)
+	public String bookReturnSearch(RedirectAttributes redirectAttributes, int bookCode){
 		redirectAttributes.addAttribute("bookCode", bookCode);
 		return "redirect:/rental/bookReturn";
 	}
@@ -52,7 +56,7 @@ public class RentalController {
 	public String bookReturn(@RequestParam(
 			"bookCode") int bookCode,
 			Model model){
-		Map<String, Object> returnMap = rentalService.bookSearch(bookCode);
+		Map<String, Object> returnMap = rentalService.bookReturnSearch(bookCode);
 		model.addAttribute("rental", returnMap.get("rental"));
 		model.addAttribute("totalPrice",returnMap.get("totalPrice"));
 		model.addAttribute("paying",returnMap.get("paying"));

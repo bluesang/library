@@ -18,7 +18,7 @@
 				<tr>
 					<th>받은금액 </th>
 					<td>								
-						<input type="text" name="rentalPayment" placeholder="선불결제 금액"/>
+						<input type="text" name="rentalPrepayment" placeholder="선불결제 금액"/>
 					</td>
 				</tr>
 			</table>
