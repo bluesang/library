@@ -13,11 +13,13 @@ public class MemberDaoImpl implements MemberDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	//회원등록
 	@Override
 	public int memberAdd(Member member) {		
 		return sqlSession.insert(MEMBER_NS+"memberAdd",member);
 	}
 
+	//회원등급 데이터 가져오기
 	@Override
 	public List<Memberlevel> selectMemberlevel() {		
 		return sqlSession.selectList(MEMBER_NS+"selectMemberlevel");

@@ -16,6 +16,7 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	private HttpServletRequest request;
 	
+	//도서등록
 	@Override
 	public int bookAdd(Book book) {
 		HttpSession session = request.getSession();
@@ -24,17 +25,20 @@ public class BookServiceImpl implements BookService {
 		book.setLibraryId(SID);
 		return bookDao.bookInsert(book);
 	}
-
+	
+	//도서상태 데이터 가져오기
 	@Override
 	public List<State> selectState() {
 		return bookDao.selectState();
 	}
-
+	
+	//도서장르 데이터 가져오기
 	@Override
 	public List<Genre> selectGenre() {		
 		return bookDao.selectGenre();
 	}
 
+	//도서폐기 등록
 	@Override
 	public int bookDisposal(int bookCode) {
 		return bookDao.bookDisposal(bookCode);

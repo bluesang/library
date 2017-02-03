@@ -14,6 +14,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	//회원등록
 	@RequestMapping(value="/member/memberAdd",method=RequestMethod.GET)
 	public String memberAdd(Model model){
 		model.addAttribute("memberlevelList", memberService.selectMemberlevel());

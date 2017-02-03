@@ -13,21 +13,21 @@ public class LibraryDaoImpl implements LibraryDao {
 	
 	private final String LIBRARY_NS = "blog.naver.bluesangil7.library.service.LibraryMapper.";
 	
+	//관리자 등록
 	@Override
-	public int insertLibrary(Library library) {
-		
+	public int insertLibrary(Library library) {		
 		return sqlSession.insert(LIBRARY_NS+"libraryAdd",library);
 	}
-
+	
+	//지역명 데이터 가져오기
 	@Override
-	public List<Local> selectLocal() {
-		
+	public List<Local> selectLocal() {		
 		return sqlSession.selectList(LIBRARY_NS+"selectLocal");
 	}
 
+	//로그인
 	@Override
-	public Library login() {
-		
+	public Library login() {		
 		return sqlSession.selectOne(LIBRARY_NS+"login");
 	}
 

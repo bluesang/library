@@ -52,12 +52,15 @@ public class LibraryController {
 		return "redirect:/library/main";
 	}
 	
+	//관리자 로그아웃
 	@RequestMapping(value="/library/logout")
 	public String logout(HttpSession session){
 		session.invalidate();
 		System.out.println("로그아웃 잘됏남?" + session);
 		return "redirect:/library/login";
 	}
+	
+	//메인 홈페이지 이동
 	@RequestMapping(value="/library/main")
 	public String main(Library library){
 		

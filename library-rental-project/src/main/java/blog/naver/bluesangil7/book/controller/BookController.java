@@ -15,6 +15,7 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 	
+	//도서등록
 	@RequestMapping(value="/book/bookAdd", method=RequestMethod.GET)
 	public String bookAdd(Model model){
 		model.addAttribute("stateList", bookService.selectState());
@@ -29,6 +30,7 @@ public class BookController {
 		return "redirect:/library/main";
 	}
 	
+	//도서폐기등록
 	@RequestMapping(value="/book/bookDisposal", method=RequestMethod.GET)
 	public String bookDisposal(){
 		return "/book/bookDisposal";
