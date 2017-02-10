@@ -38,10 +38,10 @@ public class RentalServiceImpl implements RentalService {
 		return rentalDao.bookRental(rental);
 	}
 
-	//도서반납 정보조회
+	//도서코드로 도서반납 정보조회
 	@Override
-	public Map<String, Object> bookReturnSearch(int bookCode) {
-		Map<String, Object> returnMap = new HashMap();
+	public Rental bookReturnSearch(int bookCode) {
+		
 		Rental rental = rentalDao.bookReturnSearch(bookCode);
 		
 		//총요금
@@ -52,18 +52,16 @@ public class RentalServiceImpl implements RentalService {
 			totalPrice = 500;
 		}
 		System.out.println("totalPrice는 얼마~? : "+totalPrice);
-		
+		rental.setTotalPrice(totalPrice);
 		//받은금액
 		int rentalPayment = rental.getRentalPayment();
 		System.out.println("rentalPayment는 얼마~? : "+rentalPayment);
 		
 		//받을금액
 		int paying = totalPrice - rentalPayment;
+		rental.setPaying(paying);
 		
-		returnMap.put("rental", rental);
-		returnMap.put("totalPrice", totalPrice);
-		returnMap.put("paying", paying);
-		return returnMap;
+		return rental;
 	}
 
 	//도서반납 처리

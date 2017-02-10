@@ -11,37 +11,38 @@
 				<tr>
 					<th>도서코드</th>
 					<td>
-						<input type="text" name="bookCode" readonly="readonly" value="${rental.bookCode}">
+						<input type="text" id="bookCode" name="bookCode" readonly="readonly" value="${rental.bookCode}">
+						<input type="button" id="btn" value="조회">
 					</td>						
 				</tr>
 				<tr>
 					<th>도서명</th>
 					<td>
-						<input type="text" name="bookName" readonly="readonly" value="${rental.bookName}">
+						<input type="text" id="bookName" name="bookName" readonly="readonly" value="${rental.bookName}">
 					</td>
 				</tr>
 				<tr>
 					<th>회원이름</th>
 					<td>								
-						<input type="text" name="memberName" readonly="readonly" value="${rental.memberName}">	
+						<input type="text" id="memberName" name="memberName" readonly="readonly" value="${rental.memberName}">	
 					</td>
 				</tr>
 				<tr>
 					<th>총요금</th>
 					<td>								
-						<input type="text" name="totalPrice" readonly="readonly" value="${totalPrice}">						
+						<input type="text" id="totalPrice" name="totalPrice" readonly="readonly" value="${totalPrice}">						
 					</td>		
 				</tr>
 				<tr>
 					<th>받은금액</th>
 					<td>								
-						<input type="text" name="paid" readonly="readonly" value="${paying}" >
+						<input type="text" id="paid" name="paid" readonly="readonly" value="${paying}" >
 					</td>				
 				</tr>
 				<tr>
 					<th>받을금액</th>
 					<td>								
-						<input type="text" name="paying" value="${rental.rentalPayment}">
+						<input type="text" id="paying" name="paying" value="${rental.rentalPayment}">
 					</td>			
 				</tr>
 			</table>		
@@ -50,4 +51,41 @@
 	 </div>
 	</div>
 </div>
+<script>
+	$(document).ready(function(){
+		function getContextPath() {
+			var hostIndex = location.href.indexOf(location.host) + location.host.length;
+			return location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
+		};
+		
+		$("#btn").bind("click", function(){
+			if($('#bookCode').val()==""){ //String과 int의 차이가 있나?
+				alert('도서코드를 입력하시오');
+				return;
+			}
+			$.ajax({
+				url : getContextPath()+"/rental/bookReturnSearch",
+				type : "GET",
+				data : {"bookCode" : $("#bookCode").val()},
+				success : function(data){
+					if(!data){
+						$("#bookName").val("");
+						$("#memberName").val("");
+						$("#totalPrice").val("");
+						$("#paid").val("");
+						$("#paying").val("");
+						alert("해당 도서의 정보가 없습니다.");
+						return false;
+					}
+					$("#bookName").val(data.bookName);
+					$("#memberName").val(data.memberName);
+					$("#totalPrice").val(data.totalPrice);
+					$("#paid").val(data.paid);
+					$("#paying").val(data.paying);
+				}
+			
+			});
+		});
+	});
+</script>
 <jsp:include page="/template/rentalBottom.jsp"/>

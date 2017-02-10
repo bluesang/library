@@ -10,11 +10,15 @@
 			<table class="table table-bordered">				
 				<tr>
 					<th>도서코드 </th>
-					<td><input type="text" name="bookCode"></td>								
+					<td>
+						<input type="text" name="bookCode">
+					</td>								
 				</tr>
 				<tr>
 					<th>회원ID </th>
-					<td><input type="text" name="memberId"></td>
+					<td>
+						<input type="text" name="memberId">
+					</td>
 				</tr>							
 				<tr>
 					<th>받은금액 </th>

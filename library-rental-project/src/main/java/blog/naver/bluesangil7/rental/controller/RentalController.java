@@ -8,9 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import blog.naver.bluesangil7.member.service.Member;
 import blog.naver.bluesangil7.rental.service.Rental;
 import blog.naver.bluesangil7.rental.service.RentalService;
 
@@ -39,27 +38,17 @@ public class RentalController {
 		return "redirect:/rental/bookRentalList";
 	}
 	
-	//도서조회
+	//도서코드로 조회하여 반납폼으로 정보 보내기
 	@RequestMapping(value="/rental/bookReturnSearch", method=RequestMethod.GET)
-	public String bookReturnSearch(){
-		return "/rental/bookReturnSearch";
-	}
-	
-	@RequestMapping(value="/rental/bookReturnSearch", method=RequestMethod.POST)
-	public String bookReturnSearch(RedirectAttributes redirectAttributes, int bookCode){
-		redirectAttributes.addAttribute("bookCode", bookCode);
-		return "redirect:/rental/bookReturn";
+	public @ResponseBody Rental bookReturnSearch(@RequestParam(
+			"bookCode") int bookCode){
+		Rental rental = rentalService.bookReturnSearch(bookCode);
+		return rental;
 	}
 	
 	//도서반납
 	@RequestMapping(value="/rental/bookReturn", method=RequestMethod.GET)
-	public String bookReturn(@RequestParam(
-			"bookCode") int bookCode,
-			Model model){
-		Map<String, Object> returnMap = rentalService.bookReturnSearch(bookCode);
-		model.addAttribute("rental", returnMap.get("rental"));
-		model.addAttribute("totalPrice",returnMap.get("totalPrice"));
-		model.addAttribute("paying",returnMap.get("paying"));
+	public String bookReturn(){
 		return "/rental/bookReturn";
 	}
 	

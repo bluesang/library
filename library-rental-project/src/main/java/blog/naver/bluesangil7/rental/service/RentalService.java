@@ -9,7 +9,7 @@ public interface RentalService {
 	List<Rentalstate> selectRentalState();
 	Map<String, Object> selectRentalInfo(String memberId);
 	int bookRental(Rental rental);
-	Map<String, Object> bookReturnSearch(int bookCode);
+	Rental bookReturnSearch(int bookCode);
 	int bookReturn(Rental rental);
 	List<Rental> bookRentalList();
 }

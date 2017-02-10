@@ -18,7 +18,15 @@ public class Rental {
 	private String memberName;
 	private String memberlevelName;
 	private int paying;
-	
+	private int totalPrice;
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
 	public int getPaying() {
 		return paying;
