@@ -39,6 +39,8 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 
 <div class="w3-main" style="margin-left:250px">
 	<div class="w3-row w3-padding-64">
+	 <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">관리자 등록</h1>
 		<form action="/library/libraryAdd" method="post">
 			<table class="table table-bordered">				
 				<tr>
@@ -67,6 +69,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
 			</table>
 			<input type="submit" value="등록하기" />
 		</form>
+	 </div>
 	</div>
 </div>
 

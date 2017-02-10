@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Member</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -33,7 +33,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
     <li class="w3-hide-small"><a href="<c:url value='/book/bookAdd' />" class="w3-hover-white">도서관리</a></li>
     <li class="w3-hide-small"><a href="<c:url value='/member/memberAdd' />" class="w3-hover-white">회원관리</a></li>
     <li class="w3-hide-small"><a href="<c:url value='/rental/bookRental' />" class="w3-hover-white">대여관리</a></li>
-    <li class="w3-right w3-light-grey"><a href="<c:url value='/library/logout' />">로그아웃</a></li>
+    <li class="w3-hide-medium w3-hide-small"><a href="<c:url value='/library/logout' />" class="w3-hover-white">로그아웃</a></li>
   </ul>
 </div>
 

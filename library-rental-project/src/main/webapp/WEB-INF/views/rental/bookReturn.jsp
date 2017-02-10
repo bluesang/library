@@ -4,23 +4,26 @@
 <jsp:include page="/template/rentalTop.jsp"/>
 <div class="w3-main" style="margin-left:250px">
 	<div class="w3-row w3-padding-64">
-		<h1>도서반납</h1>
-		
+	 <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">도서반납</h1>
 		<form action="<c:url value="/rental/bookReturn"/>" method="post">
 			<table class="table table-bordered">				
 				<tr>
 					<th>도서코드</th>
-					<td><input type="text" name="bookCode" readonly="readonly" value="${rental.bookCode}"></td>						
+					<td>
+						<input type="text" name="bookCode" readonly="readonly" value="${rental.bookCode}">
+					</td>						
 				</tr>
 				<tr>
 					<th>도서명</th>
-					<td><input type="text" name="bookName" readonly="readonly" value="${rental.bookName}"></td>
+					<td>
+						<input type="text" name="bookName" readonly="readonly" value="${rental.bookName}">
+					</td>
 				</tr>
 				<tr>
 					<th>회원이름</th>
 					<td>								
-						<input type="text" name="memberName" readonly="readonly" value="${rental.memberName}">
-						
+						<input type="text" name="memberName" readonly="readonly" value="${rental.memberName}">	
 					</td>
 				</tr>
 				<tr>
@@ -44,6 +47,7 @@
 			</table>		
 			<input type="submit" value="반납">
 		</form>
+	 </div>
 	</div>
 </div>
 <jsp:include page="/template/rentalBottom.jsp"/>

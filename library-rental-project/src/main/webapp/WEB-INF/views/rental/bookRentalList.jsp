@@ -4,7 +4,8 @@
 <jsp:include page="/template/rentalTop.jsp" />
 <div class="w3-main" style="margin-left:250px">
 	<div class="w3-row w3-padding-64">
-		<h1>도서대여목록</h1>
+	 <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">도서대여목록</h1>
 		<table class="table table-bordered">
 			<tr>
 				<th>대여번호</th>
@@ -13,8 +14,7 @@
 				<th>대여일</th>
 				<th>회원이름</th>
 				<th>반납예정일</th>
-				<th>잔여액</th>
-				
+				<th>잔여액</th>		
 			</tr>
 			<c:forEach var="rentalList" items="${rentalList}">
 				<tr>					
@@ -28,6 +28,7 @@
 				</tr>
 			</c:forEach>
 		</table>
+	 </div>
 	</div>
 </div>
 <jsp:include page="/template/rentalBottom.jsp" />

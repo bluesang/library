@@ -4,7 +4,8 @@
 <jsp:include page="/template/rentalTop.jsp" />
 <div class="w3-main" style="margin-left:250px">
 	<div class="w3-row w3-padding-64">
-		<h1>도서대여</h1>
+	 <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">도서대여</h1>
 		<form action="<c:url value="/rental/bookRental"/>" method="post">
 			<table class="table table-bordered">				
 				<tr>
@@ -24,6 +25,7 @@
 			</table>
 			<input type="submit" value="대여">
 		</form>
+	 </div>
 	</div>
 </div>
 
