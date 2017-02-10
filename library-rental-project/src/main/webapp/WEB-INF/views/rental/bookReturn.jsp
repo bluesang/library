@@ -11,38 +11,38 @@
 				<tr>
 					<th>도서코드</th>
 					<td>
-						<input type="text" id="bookCode" name="bookCode" readonly="readonly" value="${rental.bookCode}">
+						<input type="text" id="bookCode" name="bookCode">
 						<input type="button" id="btn" value="조회">
 					</td>						
 				</tr>
 				<tr>
 					<th>도서명</th>
 					<td>
-						<input type="text" id="bookName" name="bookName" readonly="readonly" value="${rental.bookName}">
+						<input type="text" id="bookName" name="bookName" readonly="readonly" >
 					</td>
 				</tr>
 				<tr>
 					<th>회원이름</th>
 					<td>								
-						<input type="text" id="memberName" name="memberName" readonly="readonly" value="${rental.memberName}">	
+						<input type="text" id="memberName" name="memberName" readonly="readonly" >	
 					</td>
 				</tr>
 				<tr>
 					<th>총요금</th>
 					<td>								
-						<input type="text" id="totalPrice" name="totalPrice" readonly="readonly" value="${totalPrice}">						
+						<input type="text" id="totalPrice" name="totalPrice" readonly="readonly" >						
 					</td>		
 				</tr>
 				<tr>
 					<th>받은금액</th>
 					<td>								
-						<input type="text" id="paid" name="paid" readonly="readonly" value="${paying}" >
+						<input type="text" id="paid" name="paid" readonly="readonly" >
 					</td>				
 				</tr>
 				<tr>
 					<th>받을금액</th>
 					<td>								
-						<input type="text" id="paying" name="paying" value="${rental.rentalPayment}">
+						<input type="text" id="paying" name="paying" >
 					</td>			
 				</tr>
 			</table>		
@@ -64,7 +64,7 @@
 				return;
 			}
 			$.ajax({
-				url : getContextPath()+"/rental/bookReturnSearch",
+				url : "/rental/bookReturnSearch",
 				type : "GET",
 				data : {"bookCode" : $("#bookCode").val()},
 				success : function(data){
@@ -80,8 +80,8 @@
 					$("#bookName").val(data.bookName);
 					$("#memberName").val(data.memberName);
 					$("#totalPrice").val(data.totalPrice);
-					$("#paid").val(data.paid);
-					$("#paying").val(data.paying);
+					$("#paid").val(data.paying);
+					$("#paying").val(data.rentalPayment);
 				}
 			
 			});
