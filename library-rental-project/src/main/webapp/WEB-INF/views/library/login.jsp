@@ -18,12 +18,13 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <!-- Navigation Bar -->
 <ul class="w3-navbar w3-white w3-large">
   <li><a href="#" class="w3-red"><i class="fa fa-bed w3-margin-right"></i>Team 4</a></li>
+  <li><h5>&nbsp;&nbsp;도서대여관리시스템</h5></li>
   <li class="w3-right w3-light-grey"><a href="<c:url value='/library/libraryAdd' />">관리자 등록</a></li>
 </ul>
 
 <!-- Header -->
 <header class="w3-display-container w3-content" style="max-width:1500px;">
-  <img class="w3-image" src="/resources/image/lib.jpg" style="min-width:1000px" width="1500" height="800">
+  <img class="w3-image" src="../resources/image/1.jpg" style="min-width:1000px" width="2000" height="800">
   <div class="w3-display-left w3-padding w3-col l6 m8">
     <div class="w3-container w3-red">
       <h2>Login</h2>

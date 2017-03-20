@@ -14,6 +14,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </style>
 
 <body class="w3-light-grey">
+
 <%
 	String SID = (String)session.getAttribute("SID");
 %>
@@ -32,7 +33,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
 <!-- Header -->
 <header class="w3-display-container w3-content" style="max-width:1500px;">
-  <img class="w3-image" src="/resources/image/lib.jpg" style="min-width:1000px" width="1500" height="800">
+  <img src="../resources/image/1.jpg" style="min-width:1000px" width="1500" height="800">
 </header>
 
 </body>
